@@ -25,9 +25,13 @@ public class login extends AppCompatActivity {
     TextView mCreateBtn;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_login);
         mEmail = findViewById(R.id.Email1);
         mPassword = findViewById(R.id.Password);
@@ -35,6 +39,13 @@ public class login extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         mLoginBtn = findViewById(R.id.loginBtn);
         mCreateBtn = findViewById(R.id.createText);
+
+        // Check if the user is already logged in
+        if (fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+
     }
     public void onClickRegisterFromLogin(View view) {
         startActivity(new Intent(getApplicationContext(),register.class));
@@ -55,7 +66,8 @@ public class login extends AppCompatActivity {
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
-// Now, we authenticate the user
+
+        // Now, we authenticate the user
         fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

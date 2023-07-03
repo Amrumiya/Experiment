@@ -1,6 +1,7 @@
 package com.example.auth1;
+import java.io.Serializable;
 
-public class Product {
+public class Product extends Offer implements Serializable {
     private String productId;
     private String productName;
     private String productDescription;
@@ -19,6 +20,16 @@ public class Product {
         this.contactInfo = contactInfo;
         this.imageUrl = imageUrl;
         this.userId = userId;
+    }
+
+    @Override
+    public String getName() {
+        return productName;
+    }
+
+    @Override
+    public String getDescription() {
+        return productDescription;
     }
 
     public String getProductId() {

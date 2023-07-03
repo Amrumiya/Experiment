@@ -1,58 +1,60 @@
 package com.example.auth1;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class BuyActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private ProductAdapter adapter;
-    private List<Product> productList;
-    private DatabaseReference databaseReference;
+
+    Button btnBuyProducts, btnBuyServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy); // inflate the layout file
+        setContentView(R.layout.activity_buy);
 
-        recyclerView = findViewById(R.id.recyclerV);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        productList = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        // Enable the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        btnBuyProducts = findViewById(R.id.btn_buy_products);
+        btnBuyServices = findViewById(R.id.btn_buy_services);
+
+        btnBuyProducts = findViewById(R.id.btn_buy_products);
+        btnBuyServices = findViewById(R.id.btn_buy_services);
+
+        btnBuyProducts.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                productList.clear();
-                for (DataSnapshot productSnapshot : snapshot.getChildren()) {
-                    Product product = productSnapshot.getValue(Product.class);
-                    productList.add(product);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(BuyActivity.this, "Database Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                Intent intent = new Intent(BuyActivity.this, BuyProductsActivity.class);
+                startActivity(intent);
             }
         });
 
-        adapter = new ProductAdapter(BuyActivity.this, productList);
-        recyclerView.setAdapter(adapter);
+        btnBuyServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BuyActivity.this, BuyServicesActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
+    // Handle the back button click
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

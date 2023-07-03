@@ -1,36 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
-
-<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/product_image_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/product_name_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="733dp"
+            android:layout_marginTop="55dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/product_back" />
 
-    <TextView
-        android:id="@+id/product_description_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!-- Add other views for other product details as needed -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#1E88E5"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/product_image_view"
+                android:layout_width="219dp"
+                android:layout_height="169dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rounded_image_background" />
+
+            <TextView
+                android:id="@+id/product_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="90dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserratextrabold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/product_description_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/montserratextrabold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/contact_info_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserratextrabold"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/contact_button"
+                android:layout_below="@+id/contact_info_text_view"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="130dp"
+                android:layout_width="180sp"
+                android:layout_height="60sp"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/montserratextrabold"
+                android:text="Contact"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </FrameLayout>
 </ScrollView>

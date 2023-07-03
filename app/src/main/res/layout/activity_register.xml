@@ -6,112 +6,122 @@
     android:layout_height="match_parent"
     tools:context=".register">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Authentication App"
-        android:textColor="#000000"
-        android:textSize="35sp"
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/montserratextrabold"
         android:text="Create New Account"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/fullName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fullNameLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
-        android:background="@android:color/background_dark"
-        android:ems="10"
-        android:hint="Full name"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/background_light"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-    <EditText
-        android:id="@+id/Email"
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full name"
+            android:inputType="textPersonName"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/EmailLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email"
-        android:background="@android:color/background_dark"
-        android:ems="10"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/background_light"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullName" />
+        app:layout_constraintTop_toBottomOf="@+id/fullNameLayout">
 
-    <EditText
-        android:id="@+id/password"
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:background="@android:color/background_dark"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/background_light"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailLayout">
 
-    <EditText
-        android:id="@+id/phone"
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPhonetic"
-        android:hint="Phone"
-        android:background="@android:color/background_dark"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/background_light"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayout">
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="textPhonetic"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/registerBtn"
@@ -122,12 +132,13 @@
         android:layout_marginEnd="16dp"
         android:onClick="onClickRegister"
         android:text="Register"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/montserrat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneLayout" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -144,12 +155,14 @@
         android:id="@+id/createText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserratextrabold"
         android:onClick="onClickLoginFromRegister"
-        android:text="Already registered? Login here :)"
+        android:text="login"
         android:textColor="#000000"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
