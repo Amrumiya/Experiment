@@ -1,5 +1,6 @@
 package com.example.auth1;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,7 @@ public class WishDetailActivity extends AppCompatActivity {
     private String currentUserId; // Logged in user's ID
 
 
+    @SuppressLint("SuspiciousIndentation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +81,9 @@ public class WishDetailActivity extends AppCompatActivity {
             }
         });
 
+        //TODO
         // Assuming that you are using Firebase Authentication
+
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         fetchWishDetails();

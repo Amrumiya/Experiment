@@ -120,7 +120,8 @@
         </activity>
         <activity
             android:name=".WishDetailActivity"
-            android:exported="false">
+            android:exported="false"
+            tools:ignore="DuplicateActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,7 +30,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
 public class ProductActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -38,6 +39,7 @@ public class ProductActivity extends AppCompatActivity {
     private EditText mContactInfo;
     private ImageView mProductImage;
     private Button mUploadButton;
+    private Spinner mCurrencySpinner; // Added Spinner for currency selection
 
     private Uri mImageUri;
 
@@ -68,6 +70,13 @@ public class ProductActivity extends AppCompatActivity {
         mContactInfo = findViewById(R.id.contact_info);
         mProductImage = findViewById(R.id.product_image);
         mUploadButton = findViewById(R.id.upload_button);
+        mCurrencySpinner = findViewById(R.id.currencySpinner); // Initialize the currency spinner
+
+        // Populate the currency spinner with options
+        String[] currencyOptions = { "USD", "KGS", "EUR", "JPY", "GBP", "CAD" };
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, currencyOptions);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mCurrencySpinner.setAdapter(adapter);
 
         mProductImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,9 +138,10 @@ public class ProductActivity extends AppCompatActivity {
                                     String productDescription = mProductDescription.getText().toString().trim();
                                     String contactInfo = mContactInfo.getText().toString().trim();
                                     String imageUrl = uri.toString();
+                                    String selectedCurrency = mCurrencySpinner.getSelectedItem().toString(); // Retrieve the selected currency
 
                                     String productId = mDatabaseRef.push().getKey();
-                                    Product product = new Product(productId, productName, productDescription, contactInfo, imageUrl, mAuth.getCurrentUser().getUid());
+                                    Product product = new Product(productId, productName, productDescription, contactInfo, imageUrl, mAuth.getCurrentUser().getUid(), selectedCurrency); // Pass the selected currency to the Product constructor
                                     mDatabaseRef.child(productId).setValue(product)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override

@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class AddWishActivity extends AppCompatActivity {
 
     private EditText editTextWish;
@@ -38,7 +40,7 @@ public class AddWishActivity extends AppCompatActivity {
         editTextContactInfo = findViewById(R.id.edit_text_contact_info);
 
         // Assuming that you are using Firebase Authentication
-        currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentUserId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("wishes");
     }

@@ -97,11 +97,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onClickBuy(View view) {
         Intent intent = new Intent(this, BuyActivity.class);
         startActivity(intent);
+        System.out.println("Select currency !!!");
     }
 
     public void onClickWishList(View view) {
         Intent intent = new Intent(this, WishListActivity.class);
         startActivity(intent);
+
     }
 
 

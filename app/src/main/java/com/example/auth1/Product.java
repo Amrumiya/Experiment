@@ -22,6 +22,10 @@ public class Product extends Offer implements Serializable {
         this.userId = userId;
     }
 
+    public Product(String productId, String productName, String productDescription, String contactInfo, String imageUrl, String uid, String selectedCurrency) {
+    }
+
+
     @Override
     public String getName() {
         return productName;

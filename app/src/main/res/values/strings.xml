@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UCA MM</string>
+    <string name="app_name">UCA Auction APP</string>
     <string name="title_activity_sell">SellActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
