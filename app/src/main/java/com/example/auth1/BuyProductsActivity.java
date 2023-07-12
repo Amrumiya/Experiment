@@ -43,8 +43,9 @@ public class BuyProductsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerV);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //TODO
         productList = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        databaseReference = FirebaseDatabase.getInstance().getReference("product");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -54,7 +55,7 @@ public class BuyProductsActivity extends AppCompatActivity {
                     Product product = productSnapshot.getValue(Product.class);
                     productList.add(product);
                 }
-                adapter.filteredProductList.clear();
+              //  adapter.filteredProductList.clear();
                 adapter.filteredProductList.addAll(productList);
                 adapter.notifyDataSetChanged();
             }
