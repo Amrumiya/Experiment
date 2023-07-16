@@ -19,6 +19,7 @@ import java.util.Objects;
 
 public class AddWishActivity extends AppCompatActivity {
 
+
     private EditText editTextWish;
     private EditText editTextContactInfo;
     private DatabaseReference mDatabase;
