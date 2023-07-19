@@ -7,7 +7,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class AirtableApiService {
-    private static final String BASE_URL = "https://airtable.com/appmrsQYtC08bqPZC/tblIf1zOcHoBHUstD/viw9dtWqyEb8Co38i?blocks=hide";
+    private static final String BASE_URL = "https://api.airtable.com/v0/appmrsQYtC08bqPZC/Auctionbase";
     private static final String API_KEY = "keyMYAJt2ewDCdjgN";
     private static final String BASE_ID = "appmrsQYtC08bqPZC";
 

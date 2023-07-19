@@ -3,6 +3,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://maven.pkg.github.com/Sybit-Education/airtable.java")
+        }
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'
