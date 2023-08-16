@@ -29,6 +29,7 @@ public class SellActivity extends AppCompatActivity {
 
         mButtonProduct = findViewById(R.id.button_product);
         mButtonServices = findViewById(R.id.button_services);
+        mButtonServices.setEnabled(false);
 
         mButtonProduct.setOnClickListener(new View.OnClickListener() {
             @Override

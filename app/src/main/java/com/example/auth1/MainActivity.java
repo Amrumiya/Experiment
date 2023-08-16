@@ -13,7 +13,7 @@ import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.tryadhawk.airtable.Airtable;
+//import com.tryadhawk.airtable.Airtable;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
@@ -87,22 +87,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void onClickSell(View view) {
-        Intent intent = new Intent(this, SellActivity.class);
-        startActivity(intent);
+        Intent intent1 = new Intent(this, login.class);
+        startActivity(intent1);
+       //Intent intent = new Intent(this, SellActivity.class);
+       //startActivity(intent);
     }
 
     public void onClickBuy(View view) {
         Intent intent = new Intent(this, BuyActivity.class);
         startActivity(intent);
-        System.out.println("Select currency !!!");
-    }
-
-    public void onClickWishList(View view) {
-        Intent intent = new Intent(this, WishListActivity.class);
-        startActivity(intent);
-
+       /// System.out.println("Select currency !!!");
     }
 
 
-    }
 
+
+}

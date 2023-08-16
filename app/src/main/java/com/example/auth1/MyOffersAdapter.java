@@ -1,5 +1,6 @@
 package com.example.auth1;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -44,7 +45,7 @@ public class MyOffersAdapter extends RecyclerView.Adapter<MyOffersAdapter.MyOffe
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyOffersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyOffersViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Offer offer = offerList.get(position);
         holder.offerName.setText(offer.getName());
         holder.offerDescription.setText(offer.getDescription());

@@ -52,6 +52,7 @@
                 android:layout_height="60sp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_button"
+                android:enabled="false"
                 android:fontFamily="@font/montserratextrabold"
                 android:text="Services"
                 android:textColor="#FFFFFF"

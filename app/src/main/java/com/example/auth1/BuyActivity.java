@@ -30,6 +30,8 @@ public class BuyActivity extends AppCompatActivity {
 
         btnBuyProducts = findViewById(R.id.btn_buy_products);
         btnBuyServices = findViewById(R.id.btn_buy_services);
+        //disable service
+        btnBuyServices.setEnabled(false);
 
         btnBuyProducts.setOnClickListener(new View.OnClickListener() {
             @Override

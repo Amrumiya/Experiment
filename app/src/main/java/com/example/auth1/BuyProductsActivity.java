@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +29,7 @@ public class BuyProductsActivity extends AppCompatActivity {
     private List<Product> productList;
     private DatabaseReference databaseReference;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,6 @@ public class BuyProductsActivity extends AppCompatActivity {
         //TODO
         productList = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("product");
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -55,7 +56,7 @@ public class BuyProductsActivity extends AppCompatActivity {
                     Product product = productSnapshot.getValue(Product.class);
                     productList.add(product);
                 }
-              //  adapter.filteredProductList.clear();
+                //  adapter.filteredProductList.clear();
                 adapter.filteredProductList.addAll(productList);
                 adapter.notifyDataSetChanged();
             }
